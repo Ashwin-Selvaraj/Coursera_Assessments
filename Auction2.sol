@@ -59,6 +59,7 @@ address of the registrant.*/
  bidderCount++;
  }
 
+
  function bid(uint _itemId, uint _count) public payable{
  /*
  Bids tokens to a particular item.
@@ -102,7 +103,17 @@ tokenDetails[msg.sender].remainingTokens; //updating the same balance in
  }
  }
 
- function revealWinners() public {
+  // Part 2 Task 1. Create a modifier named "onlyOwner" to ensure that only owner is allowed to reveal winners
+    //Hint : Use require to validate if "msg.sender" is equal to the "beneficiary".
+    modifier onlyOwner {
+        // ** Start code here. 2 lines approximately. **
+        require(msg.sender == beneficiary);
+        _;
+        //** End code here. **
+    }
+
+
+ function revealWinners() public onlyOwner {
 
 /*
 Iterate over all the items present in the auction.
