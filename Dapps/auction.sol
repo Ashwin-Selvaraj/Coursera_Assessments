@@ -113,7 +113,7 @@ contract Auction {
     
     function revealWinners() public onlyOwner{
         
-        /* 
+        /* //
             Iterate over all the items present in the auction.
             If at least on person has placed a bid, randomly select          the winner */
 
